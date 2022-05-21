@@ -3,8 +3,8 @@ MAINTAINER HectorMSanchezC <sanchez.hmsc@berkeley.edu>
 ###############################################################################
 # Setup Structure
 ###############################################################################
-RUN mkdir /home/mgdrive
-# WORKDIR /home/mgdrive
+RUN mkdir /home/mgdrive \
+    && mkdir /home/mgdrive/sims_out
 COPY README.md /home/mgdrive
 COPY ./Demos /home/mgdrive
 ###############################################################################

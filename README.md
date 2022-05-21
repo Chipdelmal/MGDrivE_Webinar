@@ -15,10 +15,11 @@ To run the image, run the following command in the terminal:
 docker run \
     --rm -p 8787:8787 \
     -e USER="mgdrive" -e PASSWORD="webinar" \
+    -v "$(pwd)"/MGDrivE_sims:/home/mgdrive/sims_out \
     mgdrive_webinar:dev 
 ```
 
-    -v "$(pwd)"/MGDrivE_sims:/home/mgdrive/sim_out \
+    
 
 And now follow the following link on your web-browser:
 
