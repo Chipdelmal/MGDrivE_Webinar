@@ -2,5 +2,5 @@ SHELL=bash
 
 
 dockerBuild:
-	- docker rmi mgdrive:dev -f
-	- docker build -t mgdrive:dev .
+	- docker rmi mgdrive_webinar:dev -f
+	- docker build -t mgdrive_webinar:dev .
