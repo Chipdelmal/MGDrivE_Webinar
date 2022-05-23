@@ -1,5 +1,14 @@
 # Output folders
 MGDrivE_sims
+sims_out
+
+# VSCode
+.vscode
+
+# Logs and Config
+*.log
+*.config
+*.local
 
 # History files
 .Rhistory
