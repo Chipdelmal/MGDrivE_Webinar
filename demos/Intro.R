@@ -2,14 +2,23 @@
 # Loading Libraries
 ###############################################################################
 library(MGDrivE); library(MGDrivE2);
-source('./demos/constants.R')
+source("./demos/constants.R")
 ###############################################################################
 # Setting Paths Up
 ###############################################################################
-FLD_OUT = 'Intro'
+FLD_OUT = "Intro"
 PTH_OUT = file.path(GLB_PTH_OUT, FLD_OUT)
-dir.create(path=PTH_OUT)
+dir.create(path = PTH_OUT, recursive = TRUE)
 ###############################################################################
-# Hello Message
+# Setup Sim
 ###############################################################################
-print('Hello MGDrivE!')
+simTime = as.integer(365 * 1.75)
+repsNumb = 5
+folderNames = file.path(
+    PTH_OUT,
+    formatC(x = 1:repsNumb, width = 3, format = "d", flag = "0")
+)
+###############################################################################
+# Setup Inheritance
+###############################################################################
+cube = cubeMendelian()

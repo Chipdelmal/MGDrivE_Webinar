@@ -11,6 +11,12 @@ install.packages('MGDrivE',  dependencies=TRUE, repos='http://cran.rstudio.com/'
 install.packages('MGDrivE2', dependencies=TRUE, repos='http://cran.rstudio.com/')
 ```
 
+Now, download a copy of our [github repository](https://github.com/Chipdelmal/MGDrivE_Webinar). This can be done with either the [Download ZIP](https://github.com/Chipdelmal/MGDrivE_Webinar/archive/refs/heads/main.zip) or the clone alternative:
+
+```bash
+git clone git@github.com:Chipdelmal/MGDrivE_Webinar.git
+```
+
 ### Docker
 
 Download and install [docker](https://docs.docker.com/get-docker/), then pull our MGDrivE Webinar image from dockerhub with:
@@ -18,7 +24,6 @@ Download and install [docker](https://docs.docker.com/get-docker/), then pull ou
 ```bash
 docker pull chipdelmal/mgdrive_webinar
 ```
-
 
 To run the image, run the following command in the terminal:
 
@@ -35,3 +40,7 @@ And now follow the following link on your web-browser:
 ```bash
 http://localhost:8787
 ```
+
+And close the session by hitting `CTRL+C` on the terminal.
+
+**IMPORTANT NOTE:** The changes you make on the files within the Docker container won't be saved across sessions, so make sure to save copies of the files into the `sims_out` folder if you want to make any modifications to the simulation scripts.

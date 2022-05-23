@@ -1,6 +1,6 @@
 # Output folders
 MGDrivE_sims
-sims_out
+# sims_out
 
 # VSCode
 .vscode
@@ -9,6 +9,9 @@ sims_out
 *.log
 *.config
 *.local
+*.bash*
+*.profile
+*user-settings
 
 # History files
 .Rhistory

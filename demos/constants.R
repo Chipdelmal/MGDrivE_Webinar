@@ -1,4 +1,4 @@
 
 
 # Base output path
-GLB_PTH_OUT = './sims_out'
+GLB_PTH_OUT = "./sims_out"
