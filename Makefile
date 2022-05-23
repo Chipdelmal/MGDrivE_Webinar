@@ -6,7 +6,7 @@ dockerBuild:
 	- docker build -t mgdrive_webinar:dev .
 
 
-VERSION="dev"
+VERSION="0.0.2"
 dockerRelease:
 	- docker rmi chipdelmal/mgdrive_webinar:$(VERSION) -f
 	- docker build -t chipdelmal/mgdrive_webinar:$(VERSION) .
