@@ -1,5 +1,5 @@
 FROM rocker/rstudio
-MAINTAINER Hector M. Sanchez C. <sanchez.hmsc@berkeley.edu>
+LABEL maintainer="Hector M. Sanchez C. <sanchez.hmsc@berkeley.edu>"
 ###############################################################################
 # Setup Structure
 ###############################################################################
