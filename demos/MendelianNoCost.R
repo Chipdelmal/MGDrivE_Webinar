@@ -4,6 +4,7 @@
 #   Original Author: Jared Bennett
 ###############################################################################
 rm(list=ls())
+dev.off(dev.list()["RStudioGD"])
 ###############################################################################
 # Loading Libraries and Setting Paths Up
 ###############################################################################
@@ -11,7 +12,7 @@ library(MGDrivE)
 # Get script path and directory -----------------------------------------------
 fPath = rstudioapi::getSourceEditorContext()$path 
 dirname = dirname(fPath); basename = basename(fPath)
-# Set wd to one above script's location ---------------------------------------
+# Set working directory to one above script's location ------------------------
 setwd(dirname); setwd('..')
 FLD_OUT = tools::file_path_sans_ext(basename)
 # Load constants shared across the session ------------------------------------
@@ -21,12 +22,9 @@ PTH_OUT = file.path(GLB_PTH_OUT, FLD_OUT)
 dir.create(path=PTH_OUT, recursive=TRUE)
 unlink(file.path(PTH_OUT, "*.csv"))
 ###############################################################################
-# Sim Parameters
+# Sim and Landscape Parameters
 ###############################################################################
 simTime = as.integer(365*1.75)
-###############################################################################
-# Landscape
-###############################################################################
 adultPopEq = 500
 movMat = matrix(data=1, nrow=1, ncol=1)
 patchPops = rep(adultPopEq, 1)
@@ -54,7 +52,7 @@ releases[[1]]$maleReleases = maleReleasesVector
 ###############################################################################
 # Setup and Run Sim
 ###############################################################################
-setupMGDrivE(stochasticityON = FALSE, verbose = FALSE)
+setupMGDrivE(stochasticityON=FALSE, verbose=VERBOSE)
 netPar = parameterizeMGDrivE(
     runID=1, simTime=simTime, sampTime=1, nPatch=sitesNumber,
     beta=bioParameters$betaK, muAd=bioParameters$muAd,
@@ -68,9 +66,9 @@ batchMig = basicBatchMigration(
 MGDrivESim = Network$new(
     params=netPar, driveCube=cube, patchReleases=releases,
     migrationMale=movMat, migrationFemale=movMat, migrationBatch=batchMig,
-    directory=PTH_OUT, verbose=FALSE
+    directory=PTH_OUT, verbose=VERBOSE
 )
-MGDrivESim$oneRun(verbose=FALSE)
+MGDrivESim$oneRun(verbose=VERBOSE)
 ###############################################################################
 # Analysis
 ###############################################################################
