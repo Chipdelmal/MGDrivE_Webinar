@@ -1,6 +1,16 @@
 # MGDrivE_Webinar
 
-## Instructions
+## Index
+
+0. [Test Packages](./demos/testPkgs.R) & [Constants](./demos/constants.R)
+1. Intro
+    a. Mendelian with no fitness cost
+    b. Mendelian with fitness cost
+2. 
+
+<hr>
+
+## Installation Instructions
 
 The contents of this webinar will be accesible in two ways: [github](https://github.com/Chipdelmal/MGDrivE_Webinar) and [docker](https://hub.docker.com/repository/docker/chipdelmal/mgdrive_webinar). Have a look at the following sections for installation in each of these cases!
 
@@ -44,7 +54,7 @@ docker run \
     mgdrive_webinar:dev 
 ```  
 
-And now follow the following link on your web-browser:
+And now follow the following link on your web-browser (type `mgdrive` as username and `webinar` as password):
 
 ```bash
 http://localhost:8787

@@ -7,7 +7,7 @@
 ###############################################################################
 # Loading Libraries
 ###############################################################################
-library(MGDrivE); # library(MGDrivE2);
+library(MGDrivE);
 source("./demos/constants.R")
 ###############################################################################
 # Setting Paths Up
@@ -19,11 +19,6 @@ dir.create(path=PTH_OUT, recursive=TRUE)
 # Sim Parameters
 ###############################################################################
 simTime = as.integer(365*1.75)
-# repsNumb = 5
-# folderNames = file.path(
-#     PTH_OUT,
-#     formatC(x = 1:repsNumb, width=3, format="d", flag="0")
-# )
 ###############################################################################
 # Landscape
 ###############################################################################
@@ -31,18 +26,12 @@ adultPopEq = 500
 movMat = matrix(data=1, nrow=1, ncol=1)
 patchPops = rep(adultPopEq, 1)
 ###############################################################################
-# Entomological Parameters
+# BioParameters
 ###############################################################################
-bioParameters = list(
-    tEgg=5, tLarva=6, tPupa=4,
-    betaK=20, popGrowth=1.175, muAd=0.09
-)
-###############################################################################
-# Setup Inheritance
-###############################################################################
+bioParameters = AE_AEGYPTI
 cube = cubeMendelian()
 ###############################################################################
-# Setup Releases
+# Releases
 ###############################################################################
 sitesNumber = 1
 releases = replicate(
@@ -56,11 +45,7 @@ releasesParameters = list(
 maleReleasesVector = generateReleaseVector(
     driveCube=cube, releasesParameters=releasesParameters
 )
-femaleReleasesVector = generateReleaseVector(
-    driveCube=cube, releasesParameters=releasesParameters
-)
 releases[[1]]$maleReleases = maleReleasesVector
-releases[[1]]$femaleReleases = femaleReleasesVector
 ###############################################################################
 # Setup and Run Sim
 ###############################################################################
