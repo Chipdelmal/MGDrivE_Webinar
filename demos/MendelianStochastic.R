@@ -78,8 +78,10 @@ MGDrivESim$multRun(verbose=VERBOSE)
 # Analysis
 ###############################################################################
 for(i in 1:nRep){
-  splitOutput(readDir = folderNames[i], remFile = TRUE, verbose = FALSE)
-  aggregateFemales(readDir = folderNames[i], genotypes = cube$genotypesID,
-                   remFile = TRUE, verbose = FALSE)
+  splitOutput(readDir=folderNames[i], remFile=TRUE, verbose=VERBOSE)
+  aggregateFemales(
+    readDir=folderNames[i], genotypes=cube$genotypesID,
+    remFile=TRUE, verbose=FALSE
+  )
 }
-plotMGDrivEMult(readDir=PTH_OUT, lwd = 0.35, alpha = 0.75)
+plotMGDrivEMult(readDir=PTH_OUT, lwd=0.35, alpha=0.75)
