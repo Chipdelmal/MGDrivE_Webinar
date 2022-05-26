@@ -12,7 +12,7 @@ source("./demos/constants.R")
 ###############################################################################
 # Setting Paths Up
 ###############################################################################
-FLD_OUT = "Intro"
+FLD_OUT = "MendelianNoCost"
 PTH_OUT = file.path(GLB_PTH_OUT, FLD_OUT)
 dir.create(path=PTH_OUT, recursive=TRUE)
 ###############################################################################
