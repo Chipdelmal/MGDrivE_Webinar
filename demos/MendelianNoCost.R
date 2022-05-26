@@ -3,18 +3,23 @@
 #   Source: https://marshalllab.github.io/MGDrivE/docs_v1/articles/mgdrive_examples.html
 #   Original Author: Jared Bennett
 ###############################################################################
-
+rm(list=ls())
 ###############################################################################
-# Loading Libraries
+# Loading Libraries and Setting Paths Up
 ###############################################################################
-library(MGDrivE);
+library(MGDrivE)
+# Get script path and directory -----------------------------------------------
+fPath = rstudioapi::getSourceEditorContext()$path 
+dirname = dirname(fPath); basename = basename(fPath)
+# Set wd to one above script's location ---------------------------------------
+setwd(dirname); setwd('..')
+FLD_OUT = tools::file_path_sans_ext(basename)
+# Load constants shared across the session ------------------------------------
 source("./demos/constants.R")
-###############################################################################
-# Setting Paths Up
-###############################################################################
-FLD_OUT = "MendelianNoCost"
+# Setup output folder and delete CSV files in it ------------------------------
 PTH_OUT = file.path(GLB_PTH_OUT, FLD_OUT)
 dir.create(path=PTH_OUT, recursive=TRUE)
+unlink(file.path(PTH_OUT, "*.csv"))
 ###############################################################################
 # Sim Parameters
 ###############################################################################
@@ -58,7 +63,7 @@ netPar = parameterizeMGDrivE(
     AdPopEQ=adultPopEq, inheritanceCube=cube
 )
 batchMig = basicBatchMigration(
-    batchProbs=0, sexProbs=c(.5,.5), numPatches=sitesNumber
+    batchProbs=0, sexProbs=c(.5, .5), numPatches=sitesNumber
 )
 MGDrivESim = Network$new(
     params=netPar, driveCube=cube, patchReleases=releases,
@@ -74,4 +79,4 @@ aggregateFemales(
     readDir=PTH_OUT, genotypes=cube$genotypesID,
     remFile=TRUE, verbose=FALSE
 )
-plotMGDrivESingle(readDir=PTH_OUT, totalPop=TRUE, lwd=3.5, alpha=1)
+plotMGDrivESingle(readDir=PTH_OUT, totalPop=TRUE, lwd=3.5, alpha=.75)

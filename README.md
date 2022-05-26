@@ -23,6 +23,13 @@ install.packages('MGDrivE',  dependencies=TRUE, repos='http://cran.rstudio.com/'
 install.packages('MGDrivE2', dependencies=TRUE, repos='http://cran.rstudio.com/')
 ```
 
+Additionally, we will need the following dependencies for the webinar:
+
+```R
+install.packages('rstudioapi')
+```
+
+
 Now, download a copy of our [github repository](https://github.com/Chipdelmal/MGDrivE_Webinar). This can be done with either the [Download ZIP](https://github.com/Chipdelmal/MGDrivE_Webinar/archive/refs/heads/main.zip) or the clone alternative:
 
 ```bash
@@ -34,7 +41,7 @@ You can check if **MGDrivE** was installed correctly by running the [testPkgs](.
 ```bash
 Rscript testPkgs.R
 ```
-
+**IMPORTANT NOTE:** Do not place any files in the output folders (specially `CSV` ones), as some of the scripts need to clean them up before running the simulations, which could result in loss of information. 
 
 ### Docker
 
@@ -65,3 +72,11 @@ Try running the [testPkgs](./demos/testPkgs.R) script to make sure **MGDrivE** i
 Finally, we can always close the **docker** session by hitting `CTRL+C` on the terminal.
 
 **IMPORTANT NOTE:** The changes you make on the files within the Docker container won't be saved across sessions, so make sure to save copies of the files into the `sims_out` folder if you want to make any modifications to the simulation scripts.
+
+<hr>
+
+## Authors
+
+* Webinar: [Héctor M. Sánchez C.](https://chipdelmal.github.io/), [Agastya Mondal](https://agastyamondal.com/)
+* [MGDrivE](https://besjournals.onlinelibrary.wiley.com/doi/full/10.1111/2041-210X.13318): [Héctor M. Sánchez C.](https://chipdelmal.github.io/), [Sean L. Wu](https://slwu89.github.io/), [Jared B. Bennett](https://www.linkedin.com/in/jared-bennett-21a7a9a0?original_referer=https%3A%2F%2Fwww.google.com%2F), [John M. Marshall](https://publichealth.berkeley.edu/people/john-marshall/)
+* [MGDrivE2](https://journals.plos.org/ploscompbiol/article?id=10.1371/journal.pcbi.1009030): [Sean L. Wu](https://slwu89.github.io/), [Jared B. Bennett](https://www.linkedin.com/in/jared-bennett-21a7a9a0?original_referer=https%3A%2F%2Fwww.google.com%2F), [Héctor M. Sánchez C.](https://chipdelmal.github.io/), [Andrew J. Dolgert](https://www.researchgate.net/profile/Andrew-Dolgert), [Tomás M. León](https://tomasleon.com/), [John M. Marshall](https://publichealth.berkeley.edu/people/john-marshall/)
