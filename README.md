@@ -3,7 +3,7 @@
 ## Index
 
 0. [Test Packages](./demos/testPkgs.R) & [Constants](./demos/constants.R)
-1. Introduction to MGDrivE
+1. [Introduction to MGDrivE](./MD/Intro.md)
     * [Mendelian with no fitness cost](./demos/MendelianNoCost.R)
     * Mendelian with fitness cost
 2. 
