@@ -1,13 +1,21 @@
 # MGDrivE_Webinar
 
-## Index
 
-0. [Test Packages](./demos/testPkgs.R) & [Constants](./demos/constants.R)
-1. [Introduction to MGDrivE](./MD/Intro.md)
-    * [Mendelian with no fitness cost (deterministic)](./demos/MendelianNoCost.R)
-    * [Mendelian with fitness cost (deterministic)](./demos/MendelianCost.R)
-    * [Mendelian with fitness cost (stochastic)](./demos/MendelianStochastic.R)
-2. 
+<hr>
+
+## Table of Contents
+
+0. [S] [Test Packages](./demos/testPkgs.R) & [Constants](./demos/constants.R)
+1. [D] [Introduction to MGDrivE](./MD/Intro.md)
+    * [S] [Mendelian with no fitness cost (deterministic)](./demos/MendelianNoCost.R)
+    * [S] [Mendelian with fitness cost (deterministic)](./demos/MendelianCost.R)
+    * [S] [Mendelian with fitness cost (stochastic)](./demos/MendelianStochastic.R)
+2. [D] [Basic Linked-Drives](./MD/LDR.md)
+    * [S] Linked-Drive (single population)
+    * [S] Linked-Drive (network of populations)
+3. [D] Split-Drives and more Complex Constructs
+4. [D] Environmental Components (MGDrivE2)
+5. [D] Epidemiological Components (MGDrivE2)
 
 <hr>
 
