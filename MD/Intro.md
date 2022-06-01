@@ -4,6 +4,12 @@
 
 ## Modules
 
+MGDrivE is structured in three main modules:
+
+* [Life-History](#life-history)
+* [Inheritance](#inheritance)
+* [Landscape](#landscape)
+
 ### Life-History
 
 MGDrivE's life-history structure is based on [Hancock and Godfray (2007)](https://malariajournal.biomedcentral.com/articles/10.1186/1475-2875-6-98) with extended structures to accommodate an arbitrary number of genotypes throughout the development of simulated mosquitos.
@@ -14,13 +20,8 @@ MGDrivE's life-history structure is based on [Hancock and Godfray (2007)](https:
 
 ![](https://besjournals.onlinelibrary.wiley.com/cms/asset/b5aa706c-4c3f-462b-aed4-a107a6494554/mee313318-fig-0002-m.jpg)
 
-### Landscape
 
-**Migration**
-
-**Batch Migration**
-
-### Inheritance (cubes)
+### Inheritance
 
 **Inheritance patterns**
 
@@ -36,3 +37,10 @@ MGDrivE's life-history structure is based on [Hancock and Godfray (2007)](https:
 * `omega`: Genotype-specific multiplicative modifier of adult mortality
 
 
+
+
+### Landscape
+
+**Migration**
+
+**Batch Migration**
