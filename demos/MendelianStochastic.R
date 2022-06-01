@@ -29,7 +29,7 @@ folderNames = file.path(
   PTH_OUT,
   formatC(x=1:nRep, width=3, format="d", flag="0")
 )
-simTime = as.integer(365*1.75)
+simTime = as.integer(365*5)
 adultPopEq = 500
 movMat = matrix(data=1, nrow=1, ncol=1)
 patchPops = rep(adultPopEq, 1)
@@ -37,7 +37,9 @@ patchPops = rep(adultPopEq, 1)
 # BioParameters
 ###############################################################################
 bioParameters = AE_AEGYPTI
-cube = cubeMendelian()
+dayOmega = calcOmega(mu=bioParameters$muAd, lifespanReduction=0.80)
+omegaNew = c("AA"=dayOmega)
+cube = cubeMendelian(omega=omegaNew)
 ###############################################################################
 # Releases
 ###############################################################################
@@ -47,7 +49,7 @@ releases = replicate(
     expr={list(maleReleases=NULL, femaleReleases=NULL)}, simplify=FALSE
 )
 releasesParameters = list(
-    releasesStart=25, releasesNumber=10, releasesInterval=7,
+    releasesStart=100, releasesNumber=5, releasesInterval=7,
     releaseProportion=100
 )
 maleReleasesVector = generateReleaseVector(
@@ -84,4 +86,4 @@ for(i in 1:nRep){
     remFile=TRUE, verbose=FALSE
   )
 }
-plotMGDrivEMult(readDir=PTH_OUT, lwd=0.35, alpha=0.75)
+plotMGDrivEMult(readDir=PTH_OUT, lwd=0.25, alpha=0.25)

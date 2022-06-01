@@ -32,8 +32,8 @@ patchPops = rep(adultPopEq, 1)
 # BioParameters
 ###############################################################################
 bioParameters = AE_AEGYPTI
-dayOmega = calcOmega(mu = bioParameters$muAd, lifespanReduction = 0.60)
-omegaNew = c("AA"=dayOmega, "aa"=dayOmega)
+dayOmega = calcOmega(mu=bioParameters$muAd, lifespanReduction=0.60)
+omegaNew = c("aa"=dayOmega)
 cube = cubeMendelian(omega=omegaNew)
 ###############################################################################
 # Releases
