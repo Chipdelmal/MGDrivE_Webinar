@@ -24,7 +24,7 @@ dir.create(path=PTH_OUT, recursive=TRUE, showWarnings=FALSE)
 ###############################################################################
 # Sim and Landscape Parameters
 ###############################################################################
-nRep = 50
+nRep = 20
 folderNames = file.path(
   PTH_OUT,
   formatC(x=1:nRep, width=3, format="d", flag="0")
@@ -73,7 +73,7 @@ MGDrivESim = Network$new(
     migrationMale=movMat, migrationFemale=movMat, migrationBatch=batchMig,
     directory=folderNames, verbose=VERBOSE
 )
-MGDrivESim$multRun(verbose=VERBOSE)
+MGDrivESim$multRun(verbose=TRUE)
 ###############################################################################
 # Analysis
 ###############################################################################
