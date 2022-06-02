@@ -6,9 +6,11 @@
 
 MGDrivE is structured in three main modules:
 
-* [Life-History](#life-history)
-* [Inheritance](#inheritance)
-* [Landscape](#landscape)
+* [Life-History](#life-history) deals with the life-stages that mosquitoes go through in their development (egg, larva, pupa, and adults)
+* [Inheritance](#inheritance) controls the way genes get inherited from parents to offspring
+* [Landscape](#landscape) determines the setting in which individuals will develop and migrate
+
+which connect to each other to generate our simulations.
 
 ### Life-History
 
@@ -37,10 +39,17 @@ MGDrivE's life-history structure is based on [Hancock and Godfray (2007)](https:
 * `omega`: Genotype-specific multiplicative modifier of adult mortality
 
 
-
-
 ### Landscape
+
+Finally, the landscape can generally be thought of as a network of panmictic (fully-mixing) populations in which mosquitoes can migrate according to the distances and movement probabilities.
+
 
 **Migration**
 
+
+![](https://besjournals.onlinelibrary.wiley.com/cms/asset/d6bd6851-bb6e-492d-a0d8-d6e8a2e71973/mee313318-fig-0003-m.jpg)
+
+
 **Batch Migration**
+
+This component takes into account the scenario in which a group of mosquitoes can "travel" from one population to another without any distance relationship between the aforementioned nodes (to simulate cases in which mosquitoes can hitchhike in barges or trucks).

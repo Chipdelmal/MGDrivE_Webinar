@@ -10,6 +10,7 @@
     * [S] [Mendelian with no fitness cost (deterministic)](./demos/MendelianNoCost.R)
     * [S] [Mendelian with fitness cost (deterministic)](./demos/MendelianCost.R)
     * [S] [Mendelian with fitness cost (stochastic)](./demos/MendelianStochastic.R)
+    * [S] Wolbachia (stochastic)
 2. [D] [Basic Linked-Drives](./MD/LDR.md)
     * [S] Linked-Drive (single population)
     * [S] Linked-Drive (network of populations)
