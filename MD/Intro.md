@@ -1,6 +1,6 @@
 # Introduction to MGDrivE
 
-
+Our software package "Mosquito Gene Drive Explorer" is an R package that is capable of simulating the inheritance of genetic constructs in complex heterogeneous landscapes.
 
 ## Modules
 
@@ -25,9 +25,13 @@ MGDrivE's life-history structure is based on [Hancock and Godfray (2007)](https:
 
 ### Inheritance
 
+One of MGDrivE's main contributions is its ability to handle arbitrary inheritance patterns so that a wide variety of genetic constructs can be simulated and studied. Some examples of drives that are included with the base version of our software are: [Linked-Drive](https://github.com/MarshallLab/MGDrivE/blob/master/MGDrivE/R/Cube-CRISPR2MF.R), [Split-Drive](https://github.com/MarshallLab/MGDrivE/blob/master/MGDrivE/R/Cube-SplitDrive.R), [RIDL](https://github.com/MarshallLab/MGDrivE/blob/master/MGDrivE/R/Cube-RIDL.R), [MEDEA](https://github.com/MarshallLab/MGDrivE/blob/master/MGDrivE/R/Cube-MEDEA.R), [Reciprocal Chromosomal Translocations](https://github.com/MarshallLab/MGDrivE/blob/master/MGDrivE/R/Cube-RecTrans.R), [Trans-Complementing Gene Drive](https://github.com/MarshallLab/MGDrivE/blob/master/MGDrivE/R/Cube-tGD.R), [Maternal-Toxin/Zygotic-Antidote System](https://github.com/MarshallLab/MGDrivE/blob/master/MGDrivE/R/Cube-1LocusTA.R).
+
+
 **Inheritance patterns**
 
 ![](https://marshalllab.github.io/MGDrivE/images/crispr.jpg)
+
 
 **Fitness costs**
 
@@ -42,7 +46,6 @@ MGDrivE's life-history structure is based on [Hancock and Godfray (2007)](https:
 ### Landscape
 
 Finally, the landscape can generally be thought of as a network of panmictic (fully-mixing) populations in which mosquitoes can migrate according to the distances and movement probabilities.
-
 
 **Migration**
 
