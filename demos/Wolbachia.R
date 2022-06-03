@@ -31,7 +31,7 @@ patchPops = rep(adultPopEq, 1)
 # BioParameters
 ###############################################################################
 bioParameters = AE_AEGYPTI
-dayOmega = calcOmega(mu=bioParameters$muAd, lifespanReduction=0.5)
+dayOmega = calcOmega(mu=bioParameters$muAd, lifespanReduction=0.9)
 omegaNew = c("W"=dayOmega)
 cube = cubeWolbachia(omega=omegaNew)
 ###############################################################################
