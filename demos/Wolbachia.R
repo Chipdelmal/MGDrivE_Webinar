@@ -1,6 +1,6 @@
 ###############################################################################
 # Mendelian Inheritance Demo
-#   Original Author: Héctor M. Sánchez C. & Jared Bennett
+#   Original Authors: Héctor M. Sánchez C. & Jared Bennett
 ###############################################################################
 rm(list=ls())
 dev.off(dev.list()["RStudioGD"])
