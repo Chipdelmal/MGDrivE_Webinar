@@ -1,7 +1,6 @@
 # Introduction to MGDrivE
 
-Our software package "Mosquito Gene Drive Explorer" is an R package that is capable of simulating the inheritance of genetic constructs in complex heterogeneous landscapes.
-
+Our software package "Mosquito Gene Drive Explorer" is an [R package](https://cran.r-project.org/web/packages/MGDrivE/index.html) that is capable of simulating the inheritance of genetic constructs in complex heterogeneous landscapes.
 ## Modules
 
 MGDrivE is structured in three main modules:
@@ -14,10 +13,10 @@ which connect to each other to generate our simulations.
 
 ### Life-History
 
-MGDrivE's life-history structure is based on [Hancock and Godfray (2007)](https://malariajournal.biomedcentral.com/articles/10.1186/1475-2875-6-98) with extended structures to accommodate an arbitrary number of genotypes throughout the development of simulated mosquitos.
+MGDrivE's life-history structure is based on [Hancock and Godfray (2007)](https://malariajournal.biomedcentral.com/articles/10.1186/1475-2875-6-98), with extended structures to accommodate an arbitrary number of genotypes throughout the development of simulated mosquitos. In essence, the original release of MGDrivE can be thought of as vector-based version of the lumped age-class model where the new dimensions store the genotype information of the population at each life-stage. The two main "behavioral phases" that are implemented in or framework are:
 
-**Aquatic Stages:** Individuals go through three aquatic stages: egg, larva, and pupa; with the density-dependence taking place in the larval stage.
-**Adult Stages:** Male individuals are counted and aggregated by their genotypes, whereas female adults store both their genotype and the genotype of the male they mated with.
+* **Aquatic Stages:** Individuals go through three aquatic stages: egg, larva, and pupa; with the density-dependence taking place in the larval stage.
+* **Adult Stages:** Male individuals are counted and aggregated by their genotypes, whereas female adults store both their genotype and the genotype of the male they mated with.
 
 
 ![](https://besjournals.onlinelibrary.wiley.com/cms/asset/b5aa706c-4c3f-462b-aed4-a107a6494554/mee313318-fig-0002-m.jpg)
@@ -30,17 +29,22 @@ One of MGDrivE's main contributions is its ability to handle arbitrary inheritan
 
 **Inheritance patterns**
 
+Arguably the most important component in our package is the "inheritance cube". It is within this structure that the genetic inheritance is defined and stored. The simplest way to think about this object is a 3D matrix in which we have the female parent's genotype on one axis, the male's parent's genotype in the second axis, and the offspring's inherited genotypes in the remaining one (as probabilities). For example, an entry of the matrix defined as: `['HH', 'WW', 'HH'] = 1` would mean that given that if the female and male parents have `HW` and `WW` genotypes respectively, the result will always be offspring with a `HH` genotypic combination. Following this example, `['HW', 'WW', 'HH'] = .5` with `['HW', 'WW', 'WH'] = .5` would make half the offspring `HH` and the other half `WH`. This is a fairly unrealistic example, but it highlights the way we represent the inheritance process in our simulations. Any arbitrary combination of genes and probabilities can be coded, as long as it is an $N^3$-dimensional structure where all the Z-axis entries add to 1 (so that they represent probabilities).
+
 ![](https://marshalllab.github.io/MGDrivE/images/crispr.jpg)
 
 
 **Fitness costs**
 
-* `s`: Genotype-specific fractional reduction(increase) in fertility
+Now, it's not that useful to have genotypic inheritance patterns if these genotypes do not map to phenotypic traits. To do this, we've added the following fitness costs (or increases):
+
+* `s`: Genotype-specific fractional reduction (increase) in fertility
 * `eta`: Genotype-specific mating fitness
 * `phi`: Genotype-specific sex ratio at emergence
 * `xiF`: Genotype-specific female pupatory success
 * `xiM`: Genotype-specific male pupatory success
 * `omega`: Genotype-specific multiplicative modifier of adult mortality
+* `tau`: Inheritance-cube mask
 
 
 ### Landscape
