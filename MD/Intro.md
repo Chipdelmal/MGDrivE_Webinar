@@ -53,10 +53,11 @@ Finally, the landscape can generally be thought of as a network of panmictic (fu
 
 **Migration**
 
+Individuals will generally move across the landscape based in a probability-network-based way. We can think of this network as a Markovian process in which mosquitoes randomly move from one place to another based on the probability defined by the node relative to the other nodes in the network:
 
 ![](https://besjournals.onlinelibrary.wiley.com/cms/asset/d6bd6851-bb6e-492d-a0d8-d6e8a2e71973/mee313318-fig-0003-m.jpg)
 
 
 **Batch Migration**
 
-This component takes into account the scenario in which a group of mosquitoes can "travel" from one population to another without any distance relationship between the aforementioned nodes (to simulate cases in which mosquitoes can hitchhike in barges or trucks).
+Additionally, MGDrivE accomodates for "batch migration" processes. These events take into account the scenario in which a group of mosquitoes can "travel" from one population to another without any distance relationship between the aforementioned nodes (to simulate cases in which mosquitoes can hitchhike in barges or trucks).
