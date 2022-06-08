@@ -22,25 +22,14 @@ PTH_OUT = file.path(GLB_PTH_OUT, FLD_OUT)
 unlink(file.path(PTH_OUT), recursive=TRUE)
 dir.create(path=PTH_OUT, recursive=TRUE, showWarnings=FALSE)
 ###############################################################################
-# Sim and Landscape Parameters
+# Sim Parameters
 ###############################################################################
-nRep = 10
+nRep = 15
 folderNames = file.path(
   PTH_OUT,
   formatC(x=1:nRep, width=3, format="d", flag="0")
 )
-simTime = as.integer(365*5)
-adultPopEq = 500
-# Migration network -----------------------------------------------------------
-popsNum = 5
-stayProb = .95
-movMat = Diagonal(n=popsNum, x=stayProb)
-for(i in seq(1, 4)){
-  movMat[i, i+1] = 1-stayProb
-}
-movMat[popsNum, 1] = 1-stayProb
-movMat = as.matrix(movMat)
-patchPops = rep.int(x=adultPopEq, times=popsNum)
+simTime = as.integer(365*7.5)
 ###############################################################################
 # BioParameters
 ###############################################################################
@@ -61,18 +50,31 @@ cube=cubeHomingDrive(
   )
 )
 ###############################################################################
+# Landscape Parameters
+###############################################################################
+adultPopEq = 500
+popsNum = 5
+stayProb = .99925
+movMat = Diagonal(n=popsNum, x=stayProb)
+for(i in seq(1, 4)){
+  movMat[i, i+1] = 1-stayProb
+}
+movMat[popsNum, 1] = 1-stayProb
+movMat = as.matrix(movMat)
+patchPops = rep.int(x=adultPopEq, times=popsNum)
+###############################################################################
 # Releases
 ###############################################################################
 releases = replicate(
-    n=popsNum,
-    expr={list(maleReleases=NULL, femaleReleases=NULL)}, simplify=FALSE
+  n=popsNum,
+  expr={list(maleReleases=NULL, femaleReleases=NULL)}, simplify=FALSE
 )
 releasesParameters = list(
-    releasesStart=100, releasesNumber=5, releasesInterval=7,
-    releaseProportion=100
+  releasesStart=25, releasesNumber=3, releasesInterval=7,
+  releaseProportion=20
 )
 maleReleasesVector = generateReleaseVector(
-    driveCube=cube, releasesParameters=releasesParameters
+  driveCube=cube, releasesParameters=releasesParameters
 )
 releases[[1]]$maleReleases = maleReleasesVector
 ###############################################################################
@@ -80,19 +82,19 @@ releases[[1]]$maleReleases = maleReleasesVector
 ###############################################################################
 setupMGDrivE(stochasticityON=TRUE, verbose=VERBOSE)
 netPar = parameterizeMGDrivE(
-    runID=1, simTime=simTime, sampTime=1, nPatch=popsNum,
-    beta=bioParameters$betaK, muAd=bioParameters$muAd,
-    popGrowth=bioParameters$popGrowth, tEgg=bioParameters$tEgg,
-    tLarva=bioParameters$tLarva, tPupa=bioParameters$tPupa,
-    AdPopEQ=patchPops, inheritanceCube=cube
+  runID=1, simTime=simTime, sampTime=1, nPatch=popsNum,
+  beta=bioParameters$betaK, muAd=bioParameters$muAd,
+  popGrowth=bioParameters$popGrowth, tEgg=bioParameters$tEgg,
+  tLarva=bioParameters$tLarva, tPupa=bioParameters$tPupa,
+  AdPopEQ=patchPops, inheritanceCube=cube
 )
 batchMig = basicBatchMigration(
-    batchProbs=0, sexProbs=c(.5, .5), numPatches=popsNum
+  batchProbs=0, sexProbs=c(.5, .5), numPatches=popsNum
 )
 MGDrivESim = Network$new(
-    params=netPar, driveCube=cube, patchReleases=releases,
-    migrationMale=movMat, migrationFemale=movMat, migrationBatch=batchMig,
-    directory=folderNames, verbose=VERBOSE
+  params=netPar, driveCube=cube, patchReleases=releases,
+  migrationMale=movMat, migrationFemale=movMat, migrationBatch=batchMig,
+  directory=folderNames, verbose=VERBOSE
 )
 MGDrivESim$multRun(verbose=TRUE)
 ###############################################################################
