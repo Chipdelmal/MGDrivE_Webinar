@@ -9,17 +9,18 @@ This repo contains all the materials and information required for MGDrivE's 2022
 
 0. [S] [Test Packages](./demos/testPkgs.R) & [Constants](./demos/constants.R)
 1. [D] [Introduction to MGDrivE](./MD/Intro.md)
+2. [D] [Basic Simulations](./MD/Basic.md)
     * [S] [Mendelian with no fitness cost (deterministic)](./demos/MendelianNoCost.R)
     * [S] [Mendelian with fitness cost (deterministic)](./demos/MendelianCost.R)
     * [S] [Mendelian with fitness cost (stochastic)](./demos/MendelianStochastic.R)
     * [S] [Wolbachia (deterministic)](./demos/Wolbachia.R)
-2. [D] [Basic Linked-Drives](./MD/LDR.md)
+3. [D] [Linked-Drives](./MD/LDR.md)
     * [S] [Linked-Drive Replacement (deterministic in network)](./demos/LDRReplacementDeterministic.R)
     * [S] [Linked-Drive Suppression (deterministic in network)](./demos/LDRSuppressionDeterministic.R)
     * [S] [Linked-Drive Replacement (stochastic in network)](./demos/LDRReplacementStochastic.R)
     * [S] [Linked-Drive Suppression (stochastic in network)](./demos/LDRSuppressionStochastic.R)
-3. [D] Environmental Components (MGDrivE2)
-4. [D] Epidemiological Components (MGDrivE2)
+4. [D] Environmental Components (MGDrivE2)
+5. [D] Epidemiological Components (MGDrivE2)
 
 **Note:** Items marked with [S] link to **code scripts**, whereas items marked with [D] link to **markdown documents**.
 

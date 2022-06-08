@@ -102,9 +102,9 @@ aggregateFemales(
     readDir=PTH_OUT, genotypes=cube$genotypesID,
     remFile=TRUE, verbose=FALSE
 )
-tiff(
-  file=file.path(PTH_OUT, 'dynamics.tiff'), 
-  width=16, height=16, units='cm', compression="lzw", res=175
-)
+# tiff(
+#   file=file.path(PTH_OUT, 'dynamics.tiff'), 
+#   width=16, height=16, units='cm', compression="lzw", res=175
+# )
 plotMGDrivESingle(readDir=PTH_OUT, totalPop=TRUE, lwd=3.5, alpha=.75)
-dev.off()
+# dev.off()
