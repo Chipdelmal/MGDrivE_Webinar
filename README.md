@@ -12,9 +12,10 @@
     * [S] [Mendelian with fitness cost (stochastic)](./demos/MendelianStochastic.R)
     * [S] [Wolbachia (deterministic)](./demos/Wolbachia.R)
 2. [D] [Basic Linked-Drives](./MD/LDR.md)
-    * [S] Linked-Drive Replacement (deterministic in network)
-    * [S] [Linked-Drive Replacement (stochastic in network)](./demos/LDRStochastic.R)
-    * [S] Linked-Drive Suppression (stochastic in network)
+    * [S] [Linked-Drive Replacement (deterministic in network)](./demos/LDRReplacementDeterministic.R)
+    * [S] [Linked-Drive Suppression (deterministic in network)](./demos/LDRSuppressionDeterministic.R)
+    * [S] [Linked-Drive Replacement (stochastic in network)](./demos/LDRReplacementStochastic.R)
+    * [S] [Linked-Drive Suppression (stochastic in network)](./demos/LDRSuppressionStochastic.R)
 3. [D] Split-Drives and more Complex Constructs
 4. [D] Environmental Components (MGDrivE2)
 5. [D] Epidemiological Components (MGDrivE2)

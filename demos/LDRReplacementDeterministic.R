@@ -24,12 +24,12 @@ dir.create(path=PTH_OUT, recursive=TRUE, showWarnings=FALSE)
 ###############################################################################
 # Sim Parameters
 ###############################################################################
-nRep = 15
+nRep = 10
 folderNames = file.path(
   PTH_OUT,
   formatC(x=1:nRep, width=3, format="d", flag="0")
 )
-simTime = as.integer(365*7.5)
+simTime = as.integer(365*10)
 ###############################################################################
 # BioParameters
 ###############################################################################
@@ -53,8 +53,8 @@ cube=cubeHomingDrive(
 # Landscape Parameters
 ###############################################################################
 adultPopEq = 500
-popsNum = 5
-stayProb = .99925
+popsNum = 4
+stayProb = .99975
 movMat = Diagonal(n=popsNum, x=stayProb)
 for(i in seq(1, 4)){
   movMat[i, i+1] = 1-stayProb
@@ -80,31 +80,29 @@ releases[[1]]$maleReleases = maleReleasesVector
 ###############################################################################
 # Setup and Run Sim
 ###############################################################################
-setupMGDrivE(stochasticityON=TRUE, verbose=VERBOSE)
+setupMGDrivE(stochasticityON=FALSE, verbose=VERBOSE)
 netPar = parameterizeMGDrivE(
-  runID=1, simTime=simTime, sampTime=1, nPatch=popsNum,
-  beta=bioParameters$betaK, muAd=bioParameters$muAd,
-  popGrowth=bioParameters$popGrowth, tEgg=bioParameters$tEgg,
-  tLarva=bioParameters$tLarva, tPupa=bioParameters$tPupa,
-  AdPopEQ=patchPops, inheritanceCube=cube
+    runID=1, simTime=simTime, sampTime=1, nPatch=popsNum,
+    beta=bioParameters$betaK, muAd=bioParameters$muAd,
+    popGrowth=bioParameters$popGrowth, tEgg=bioParameters$tEgg,
+    tLarva=bioParameters$tLarva, tPupa=bioParameters$tPupa,
+    AdPopEQ=patchPops, inheritanceCube=cube
 )
 batchMig = basicBatchMigration(
-  batchProbs=0, sexProbs=c(.5, .5), numPatches=popsNum
+    batchProbs=0, sexProbs=c(.5, .5), numPatches=popsNum
 )
 MGDrivESim = Network$new(
-  params=netPar, driveCube=cube, patchReleases=releases,
-  migrationMale=movMat, migrationFemale=movMat, migrationBatch=batchMig,
-  directory=folderNames, verbose=VERBOSE
+    params=netPar, driveCube=cube, patchReleases=releases,
+    migrationMale=movMat, migrationFemale=movMat, migrationBatch=batchMig,
+    directory=PTH_OUT, verbose=VERBOSE
 )
-MGDrivESim$multRun(verbose=TRUE)
+MGDrivESim$oneRun(verbose=TRUE)
 ###############################################################################
 # Analysis
 ###############################################################################
-for(i in 1:nRep){
-  splitOutput(readDir=folderNames[i], remFile=TRUE, verbose=VERBOSE)
-  aggregateFemales(
-    readDir=folderNames[i], genotypes=cube$genotypesID,
+splitOutput(readDir=PTH_OUT, remFile=TRUE, verbose=FALSE)
+aggregateFemales(
+    readDir=PTH_OUT, genotypes=cube$genotypesID,
     remFile=TRUE, verbose=FALSE
-  )
-}
-plotMGDrivEMult(readDir=PTH_OUT, lwd=0.25, alpha=0.25)
+)
+plotMGDrivESingle(readDir=PTH_OUT, totalPop=TRUE, lwd=3.5, alpha=.75)
