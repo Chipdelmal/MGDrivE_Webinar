@@ -7,7 +7,6 @@ This repo contains all the materials and information required for MGDrivE's 2022
 
 ## Table of Contents
 
-0. [S] [Test Packages](./demos/testPkgs.R) & [Constants](./demos/constants.R)
 1. [D] [Introduction to MGDrivE](./MD/Intro.md)
 2. [D] [Basic Simulations](./MD/Basic.md)
     * [S] [Mendelian with no fitness cost (deterministic)](./demos/MendelianNoCost.R)
