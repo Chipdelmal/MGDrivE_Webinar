@@ -1,6 +1,6 @@
 ###############################################################################
 # Mendelian Inheritance Demo
-#   Source: https://marshalllab.github.io/MGDrivE/docs_v1/articles/mgdrive_examples.html
+#   Source: https://github.com/MarshallLab/MGDrivE/blob/master/Examples/SoftwarePaper/AeAegypti_Software_Replacement.R
 #   Original Author: Jared Bennett
 ###############################################################################
 rm(list=ls())
@@ -105,4 +105,9 @@ aggregateFemales(
     readDir=PTH_OUT, genotypes=cube$genotypesID,
     remFile=TRUE, verbose=FALSE
 )
+tiff(
+  file=file.path(PTH_OUT, 'dynamics.tiff'), 
+  width=16, height=16, units='cm', compression="lzw", res=175
+)
 plotMGDrivESingle(readDir=PTH_OUT, totalPop=TRUE, lwd=3.5, alpha=.75)
+dev.off()

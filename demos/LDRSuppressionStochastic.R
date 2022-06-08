@@ -104,4 +104,9 @@ for(i in 1:nRep){
     remFile=TRUE, verbose=FALSE
   )
 }
+tiff(
+  file=file.path(PTH_OUT, 'dynamics.tiff'), 
+  width=16, height=16, units='cm', compression="lzw", res=175
+)
 plotMGDrivEMult(readDir=PTH_OUT, lwd=0.25, alpha=0.5)
+dev.off()

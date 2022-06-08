@@ -1,6 +1,8 @@
 # MGDrivE_Webinar
 
 
+This repo contains all the materials and information required for MGDrivE's 2022 webinar.
+
 <hr>
 
 ## Table of Contents
@@ -16,9 +18,10 @@
     * [S] [Linked-Drive Suppression (deterministic in network)](./demos/LDRSuppressionDeterministic.R)
     * [S] [Linked-Drive Replacement (stochastic in network)](./demos/LDRReplacementStochastic.R)
     * [S] [Linked-Drive Suppression (stochastic in network)](./demos/LDRSuppressionStochastic.R)
-3. [D] Split-Drives and more Complex Constructs
-4. [D] Environmental Components (MGDrivE2)
-5. [D] Epidemiological Components (MGDrivE2)
+3. [D] Environmental Components (MGDrivE2)
+4. [D] Epidemiological Components (MGDrivE2)
+
+**Note:** Items marked with [S] link to **code scripts**, whereas items marked with [D] link to **markdown documents**.
 
 <hr>
 
@@ -57,7 +60,7 @@ Rscript testPkgs.R
 
 ### Docker
 
-Download and install [docker](https://docs.docker.com/get-docker/), then pull our MGDrivE Webinar image from dockerhub with:
+Download and install [docker](https://docs.docker.com/get-docker/), then pull our MGDrivE Webinar image from [our dockerhub](https://hub.docker.com/repository/docker/chipdelmal/mgdrive_webinar) with:
 
 ```bash
 docker pull chipdelmal/mgdrive_webinar
@@ -89,7 +92,7 @@ Finally, we can always close the **docker** session by hitting `CTRL+C` on the t
 
 ## Authors and Funders
 
-* Webinar: [Héctor M. Sánchez C.](https://chipdelmal.github.io/), [Agastya Mondal](https://agastyamondal.com/)
+* Webinar: [Héctor M. Sánchez C.](https://chipdelmal.github.io/)
 * [MGDrivE](https://besjournals.onlinelibrary.wiley.com/doi/full/10.1111/2041-210X.13318): [Héctor M. Sánchez C.](https://chipdelmal.github.io/), [Sean L. Wu](https://slwu89.github.io/), [Jared B. Bennett](https://www.linkedin.com/in/jared-bennett-21a7a9a0?original_referer=https%3A%2F%2Fwww.google.com%2F), [John M. Marshall](https://publichealth.berkeley.edu/people/john-marshall/)
 * [MGDrivE2](https://journals.plos.org/ploscompbiol/article?id=10.1371/journal.pcbi.1009030): [Sean L. Wu](https://slwu89.github.io/), [Jared B. Bennett](https://www.linkedin.com/in/jared-bennett-21a7a9a0?original_referer=https%3A%2F%2Fwww.google.com%2F), [Héctor M. Sánchez C.](https://chipdelmal.github.io/), [Andrew J. Dolgert](https://www.researchgate.net/profile/Andrew-Dolgert), [Tomás M. León](https://tomasleon.com/), [John M. Marshall](https://publichealth.berkeley.edu/people/john-marshall/)
 

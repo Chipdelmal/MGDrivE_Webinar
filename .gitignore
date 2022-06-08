@@ -1,3 +1,6 @@
+# Media
+*.tiff
+
 # Output folders
 MGDrivE_sims
 sims_out

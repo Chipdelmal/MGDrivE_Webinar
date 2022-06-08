@@ -1,6 +1,6 @@
 ###############################################################################
 # Mendelian Inheritance Demo
-#   Source: https://marshalllab.github.io/MGDrivE/docs_v1/articles/mgdrive_examples.html
+#   Source: https://github.com/MarshallLab/MGDrivE/blob/master/Examples/SoftwarePaper/AeAegypti_Software_Replacement.R
 #   Original Author: Jared Bennett
 ###############################################################################
 rm(list=ls())
@@ -107,4 +107,9 @@ for(i in 1:nRep){
     remFile=TRUE, verbose=FALSE
   )
 }
+tiff(
+  file=file.path(PTH_OUT, 'dynamics.tiff'), 
+  width=16, height=16, units='cm', compression="lzw", res=175
+)
 plotMGDrivEMult(readDir=PTH_OUT, lwd=0.25, alpha=0.5)
+dev.off()
