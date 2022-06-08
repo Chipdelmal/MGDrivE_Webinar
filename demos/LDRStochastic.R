@@ -8,8 +8,7 @@ dev.off(dev.list()["RStudioGD"])
 ###############################################################################
 # Loading Libraries and Setting Paths Up
 ###############################################################################
-library(MGDrivE)
-library(Matrix)
+library(MGDrivE); library(Matrix)
 # Get script path and directory -----------------------------------------------
 fPath = rstudioapi::getSourceEditorContext()$path 
 dirname = dirname(fPath); basename = basename(fPath)
@@ -25,14 +24,14 @@ dir.create(path=PTH_OUT, recursive=TRUE, showWarnings=FALSE)
 ###############################################################################
 # Sim and Landscape Parameters
 ###############################################################################
-nRep = 15
+nRep = 10
 folderNames = file.path(
   PTH_OUT,
   formatC(x=1:nRep, width=3, format="d", flag="0")
 )
 simTime = as.integer(365*5)
 adultPopEq = 500
-
+# Migration network -----------------------------------------------------------
 popsNum = 5
 stayProb = .95
 movMat = Diagonal(n=popsNum, x=stayProb)
@@ -40,7 +39,7 @@ for(i in seq(1, 4)){
   movMat[i, i+1] = 1-stayProb
 }
 movMat[popsNum, 1] = 1-stayProb
-
+movMat = as.matrix(movMat)
 patchPops = rep.int(x=adultPopEq, times=popsNum)
 ###############################################################################
 # BioParameters
@@ -64,9 +63,8 @@ cube=cubeHomingDrive(
 ###############################################################################
 # Releases
 ###############################################################################
-sitesNumber = popsNum
 releases = replicate(
-    n=sitesNumber,
+    n=popsNum,
     expr={list(maleReleases=NULL, femaleReleases=NULL)}, simplify=FALSE
 )
 releasesParameters = list(
@@ -82,14 +80,14 @@ releases[[1]]$maleReleases = maleReleasesVector
 ###############################################################################
 setupMGDrivE(stochasticityON=TRUE, verbose=VERBOSE)
 netPar = parameterizeMGDrivE(
-    runID=1, simTime=simTime, sampTime=1, nPatch=sitesNumber,
+    runID=1, simTime=simTime, sampTime=1, nPatch=popsNum,
     beta=bioParameters$betaK, muAd=bioParameters$muAd,
     popGrowth=bioParameters$popGrowth, tEgg=bioParameters$tEgg,
     tLarva=bioParameters$tLarva, tPupa=bioParameters$tPupa,
-    AdPopEQ=adultPopEq, inheritanceCube=cube
+    AdPopEQ=patchPops, inheritanceCube=cube
 )
 batchMig = basicBatchMigration(
-    batchProbs=0, sexProbs=c(.5, .5), numPatches=sitesNumber
+    batchProbs=0, sexProbs=c(.5, .5), numPatches=popsNum
 )
 MGDrivESim = Network$new(
     params=netPar, driveCube=cube, patchReleases=releases,

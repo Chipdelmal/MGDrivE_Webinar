@@ -65,7 +65,7 @@ netPar = parameterizeMGDrivE(
     beta=bioParameters$betaK, muAd=bioParameters$muAd,
     popGrowth=bioParameters$popGrowth, tEgg=bioParameters$tEgg,
     tLarva=bioParameters$tLarva, tPupa=bioParameters$tPupa,
-    AdPopEQ=adultPopEq, inheritanceCube=cube
+    AdPopEQ=patchPops, inheritanceCube=cube
 )
 batchMig = basicBatchMigration(
     batchProbs=0, sexProbs=c(.5, .5), numPatches=sitesNumber
