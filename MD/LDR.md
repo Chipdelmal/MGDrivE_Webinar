@@ -18,4 +18,4 @@ Population suppression, on the other hand, revolves around the idea of conferrin
 
 <hr>
 
-Note: click on the images to be directed to the code that generated them.
+**Note:** click on the images to be directed to the code that generated them.
