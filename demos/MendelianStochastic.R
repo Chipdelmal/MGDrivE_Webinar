@@ -48,7 +48,7 @@ releases = replicate(
 )
 releasesParameters = list(
     releasesStart=REL_START, releasesInterval=REL_INTERVAL,
-    releasesNumber=10, releaseProportion=as.integer(ADULT_EQ*.1)
+    releasesNumber=REL_NUM, releaseProportion=as.integer(ADULT_EQ*.1)
 )
 maleReleasesVector = generateReleaseVector(
   driveCube=cube, releasesParameters=releasesParameters
@@ -89,8 +89,8 @@ if(PLOT_TO_FILE){
         file=file.path(PTH_OUT, 'dynamics.tiff'), 
         width=36, height=16, units='cm', compression="lzw", res=175
     )
-    plotMGDrivESingle(readDir=PTH_OUT, totalPop=TRUE, lwd=3.5, alpha=.75)
+    plotMGDrivEMult(readDir=PTH_OUT, lwd=0.25, alpha=0.5, totalPop=TRUE)
     dev.off()
 }else{
-    plotMGDrivESingle(readDir=PTH_OUT, totalPop=TRUE, lwd=3.5, alpha=.75)
+    plotMGDrivEMult(readDir=PTH_OUT, lwd=0.25, alpha=0.5, totalPop=TRUE)
 }

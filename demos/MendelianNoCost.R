@@ -43,7 +43,7 @@ releases = replicate(
 )
 releasesParameters = list(
     releasesStart=REL_START, releasesInterval=REL_INTERVAL,
-    releasesNumber=10, releaseProportion=as.integer(ADULT_EQ*.1)
+    releasesNumber=REL_NUM, releaseProportion=as.integer(ADULT_EQ*.1)
 )
 maleReleasesVector = generateReleaseVector(
     driveCube=cube, releasesParameters=releasesParameters

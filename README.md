@@ -13,6 +13,7 @@ This repo contains all the materials and information required for MGDrivE's 2022
     * [S] [Mendelian with fitness cost (deterministic)](./demos/MendelianCost.R)
     * [S] [Mendelian with fitness cost (stochastic)](./demos/MendelianStochastic.R)
     * [S] [Wolbachia (deterministic)](./demos/Wolbachia.R)
+    * [S] [Wolbachia (stochastic)](./demos/WolbachiaStochastic.R)
 3. [D] [Linked-Drives](./MD/LDR.md)
     * [S] [Linked-Drive Replacement (deterministic in network)](./demos/LDRReplacementDeterministic.R)
     * [S] [Linked-Drive Suppression (deterministic in network)](./demos/LDRSuppressionDeterministic.R)

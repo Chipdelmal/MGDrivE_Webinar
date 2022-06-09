@@ -17,7 +17,7 @@ After running our deterministic simulations, we can have a go at running a stoch
 
 Finally, we will simulate incompatible-insect-techique (IIT) releases for population suppression (an example being [Beebe et al. 2021](https://www.pnas.org/doi/10.1073/pnas.2106828118)):
 
-[<img src="./media/Wolbachia.jpg" width="49%">](../demos/Wolbachia.R)
+[<img src="./media/Wolbachia.jpg" width="49%">](../demos/Wolbachia.R)[<img src="./media/WolbachiaStochastic.jpg" width="49%">](../demos/WolbachiaStochastic.R)
 
 <hr>
 
