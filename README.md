@@ -92,7 +92,7 @@ Finally, we can always close the **docker** session by hitting `CTRL+C` on the t
 
 ## Authors and Funders
 
-* Webinar: [Héctor M. Sánchez C.](https://chipdelmal.github.io/)
+* Webinar: [Héctor M. Sánchez C.](https://chipdelmal.github.io/), [Agastya Mondal](https://agastyamondal.com/)
 * [MGDrivE](https://besjournals.onlinelibrary.wiley.com/doi/full/10.1111/2041-210X.13318): [Héctor M. Sánchez C.](https://chipdelmal.github.io/), [Sean L. Wu](https://slwu89.github.io/), [Jared B. Bennett](https://www.linkedin.com/in/jared-bennett-21a7a9a0?original_referer=https%3A%2F%2Fwww.google.com%2F), [John M. Marshall](https://publichealth.berkeley.edu/people/john-marshall/)
 * [MGDrivE2](https://journals.plos.org/ploscompbiol/article?id=10.1371/journal.pcbi.1009030): [Sean L. Wu](https://slwu89.github.io/), [Jared B. Bennett](https://www.linkedin.com/in/jared-bennett-21a7a9a0?original_referer=https%3A%2F%2Fwww.google.com%2F), [Héctor M. Sánchez C.](https://chipdelmal.github.io/), [Andrew J. Dolgert](https://www.researchgate.net/profile/Andrew-Dolgert), [Tomás M. León](https://tomasleon.com/), [John M. Marshall](https://publichealth.berkeley.edu/people/john-marshall/)
 
