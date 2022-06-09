@@ -78,7 +78,7 @@ MGDrivESim = Network$new(
     migrationMale=movMat, migrationFemale=movMat, migrationBatch=batchMig,
     directory=PTH_OUT, verbose=VERBOSE
 )
-MGDrivESim$oneRun(verbose=VERBOSE)
+MGDrivESim$oneRun(verbose=TRUE)
 ###############################################################################
 # Analysis
 ###############################################################################
