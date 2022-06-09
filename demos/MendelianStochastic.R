@@ -4,7 +4,7 @@
 #   Original Author: Jared Bennett
 ###############################################################################
 rm(list=ls())
-dev.off(dev.list()["RStudioGD"])
+if(!is.na(dev.list()["RStudioGD"][[1]])){dev.off(dev.list()["RStudioGD"])}
 ###############################################################################
 # Loading Libraries and Setting Paths Up
 ###############################################################################
