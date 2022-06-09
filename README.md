@@ -63,7 +63,7 @@ Rscript testPkgs.R
 Download and install [docker](https://docs.docker.com/get-docker/), then pull our MGDrivE Webinar image from [our dockerhub](https://hub.docker.com/repository/docker/chipdelmal/mgdrive_webinar) with:
 
 ```bash
-docker pull chipdelmal/mgdrive_webinar
+docker pull chipdelmal/mgdrive_webinar:1.0.0
 ```
 
 To run the image, run the following command in the terminal:
@@ -73,7 +73,7 @@ docker run \
     --rm -p 8787:8787 \
     -e USER="mgdrive" -e PASSWORD="webinar" \
     -v "$(pwd)"/MGDrivE_sims:/home/mgdrive/sims_out \
-    mgdrive_webinar:dev
+    chipdelmal/mgdrive_webinar:1.0.0
 ```  
 
 And now follow the following link on your web-browser (type `mgdrive` as username and `webinar` as password):
