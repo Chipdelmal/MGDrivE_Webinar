@@ -4,7 +4,7 @@
 #   Original Authors: Héctor M. Sánchez C. & Jared Bennett
 ###############################################################################
 rm(list=ls())
-if(!is.na(dev.list()["RStudioGD"][[1]])){dev.off(dev.list()["RStudioGD"])}
+if(any(!is.na(dev.list()["RStudioGD"]))){dev.off(dev.list()["RStudioGD"])}
 ###############################################################################
 # Loading Libraries and Setting Paths Up
 ###############################################################################
@@ -20,7 +20,7 @@ source("./demos/constants.R")
 # Setup output folder and delete CSV files in it ------------------------------
 PTH_OUT = file.path(GLB_PTH_OUT, FLD_OUT)
 unlink(file.path(PTH_OUT, "*.csv"))
-dir.create(path=PTH_OUT, recursive=TRUE)
+dir.create(path=PTH_OUT, recursive=TRUE, showWarnings=FALSE)
 ###############################################################################
 # Sim and Landscape Parameters
 ###############################################################################
