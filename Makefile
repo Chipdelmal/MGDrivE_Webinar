@@ -5,7 +5,7 @@ dockerRun:
 	docker run \
 		--rm -p 8787:8787 \
 		-e USER="mgdrive" -e PASSWORD="webinar" \
-		-v "$(pwd)"/MGDrivE_sims:/home/mgdrive/sims_out \
+		-v /home/chipdelmal/Documents/GitHub/MGDrivE_Webinar/sims_out:/home/mgdrive/sims_out \
 		mgdrive_webinar:dev
 
 
