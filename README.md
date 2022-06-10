@@ -13,6 +13,7 @@ This repo contains all the materials and information required for MGDrivE's 2022
     * [S] [Mendelian with fitness cost (deterministic)](./demos/MendelianCost.R)
     * [S] [Mendelian with fitness cost (stochastic)](./demos/MendelianStochastic.R)
     * [S] [Wolbachia (deterministic)](./demos/Wolbachia.R)
+    * [S] [Wolbachia (stochastic)](./demos/WolbachiaStochastic.R)
 3. [D] [Linked-Drives](./MD/LDR.md)
     * [S] [Linked-Drive Replacement (deterministic in network)](./demos/LDRReplacementDeterministic.R)
     * [S] [Linked-Drive Suppression (deterministic in network)](./demos/LDRSuppressionDeterministic.R)
@@ -63,7 +64,7 @@ Rscript testPkgs.R
 Download and install [docker](https://docs.docker.com/get-docker/), then pull our MGDrivE Webinar image from [our dockerhub](https://hub.docker.com/repository/docker/chipdelmal/mgdrive_webinar) with:
 
 ```bash
-docker pull chipdelmal/mgdrive_webinar
+docker pull chipdelmal/mgdrive_webinar:1.0.0
 ```
 
 To run the image, run the following command in the terminal:
@@ -73,7 +74,7 @@ docker run \
     --rm -p 8787:8787 \
     -e USER="mgdrive" -e PASSWORD="webinar" \
     -v "$(pwd)"/MGDrivE_sims:/home/mgdrive/sims_out \
-    mgdrive_webinar:dev
+    chipdelmal/mgdrive_webinar:1.0.0
 ```  
 
 And now follow the following link on your web-browser (type `mgdrive` as username and `webinar` as password):
@@ -92,7 +93,7 @@ Finally, we can always close the **docker** session by hitting `CTRL+C` on the t
 
 ## Authors and Funders
 
-* Webinar: [Héctor M. Sánchez C.](https://chipdelmal.github.io/)
+* Webinar: [Héctor M. Sánchez C.](https://chipdelmal.github.io/), [Agastya Mondal](https://agastyamondal.com/)
 * [MGDrivE](https://besjournals.onlinelibrary.wiley.com/doi/full/10.1111/2041-210X.13318): [Héctor M. Sánchez C.](https://chipdelmal.github.io/), [Sean L. Wu](https://slwu89.github.io/), [Jared B. Bennett](https://www.linkedin.com/in/jared-bennett-21a7a9a0?original_referer=https%3A%2F%2Fwww.google.com%2F), [John M. Marshall](https://publichealth.berkeley.edu/people/john-marshall/)
 * [MGDrivE2](https://journals.plos.org/ploscompbiol/article?id=10.1371/journal.pcbi.1009030): [Sean L. Wu](https://slwu89.github.io/), [Jared B. Bennett](https://www.linkedin.com/in/jared-bennett-21a7a9a0?original_referer=https%3A%2F%2Fwww.google.com%2F), [Héctor M. Sánchez C.](https://chipdelmal.github.io/), [Andrew J. Dolgert](https://www.researchgate.net/profile/Andrew-Dolgert), [Tomás M. León](https://tomasleon.com/), [John M. Marshall](https://publichealth.berkeley.edu/people/john-marshall/)
 

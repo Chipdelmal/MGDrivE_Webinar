@@ -1,15 +1,14 @@
 ###############################################################################
-# Linked Drive Suppression Demo
-#   Source: https://github.com/MarshallLab/MGDrivE/blob/master/Examples/SoftwarePaper/AeAegypti_Software_Suppression.R
-#   Original Authors: Héctor M. Sánchez C. & Jared Bennett & Sean L. Wu
-#   Modified by: Héctor M. Sánchez C.
+# Wolbachia IIT Demo
+# -----------------------------------------------------------------------------
+#   Original Authors: Héctor M. Sánchez C. & Jared Bennett
 ###############################################################################
 rm(list=ls())
-dev.off(dev.list()["RStudioGD"])
+if(!is.na(dev.list()["RStudioGD"][[1]])){dev.off(dev.list()["RStudioGD"])}
 ###############################################################################
 # Loading Libraries and Setting Paths Up
 ###############################################################################
-library(MGDrivE); library(Matrix)
+library(MGDrivE)
 # Get script path and directory -----------------------------------------------
 fPath = rstudioapi::getSourceEditorContext()$path 
 dirname = dirname(fPath); basename = basename(fPath)
@@ -23,10 +22,10 @@ PTH_OUT = file.path(GLB_PTH_OUT, FLD_OUT)
 unlink(file.path(PTH_OUT), recursive=TRUE)
 dir.create(path=PTH_OUT, recursive=TRUE, showWarnings=FALSE)
 ###############################################################################
-# Sim Parameters
+# Sim and Landscape Parameters
 ###############################################################################
 folderNames = file.path(
-  PTH_OUT, formatC(x=1:(REPS), width=3, format="d", flag="0")
+  PTH_OUT, formatC(x=1:(2*REPS), width=3, format="d", flag="0")
 )
 movMat = matrix(data=1, nrow=1, ncol=1)
 patchPops = rep(ADULT_EQ, 1)
@@ -34,56 +33,48 @@ patchPops = rep(ADULT_EQ, 1)
 # BioParameters
 ###############################################################################
 bioParameters = AE_AEGYPTI
-sHet=.9
-eM=0.999
-eF=0.999
-cube=cubeHomingDrive(
-  cM=.9999, cF=.9999, chM=eM, crM=1/30, chF=eF, crF=1/30,
-  s=c(
-    "WW"=1, "WH"=1-sHet, "WR"=1, "WB"=1-sHet,
-    "HH"=0, "HR"=1-sHet, "HB"=0,
-    "RR"=1, "RB"=1-sHet,
-    "BB"=0
-  )
-)
-###############################################################################
-# Landscape Parameters
-###############################################################################
-movMat = Diagonal(n=POPS_NET_NUM, x=P_STAY)
-for(i in seq(1, POPS_NET_NUM-1)){
-  movMat[i, i+1] = 1-P_STAY
-}
-movMat[POPS_NET_NUM, 1] = 1-P_STAY
-movMat = as.matrix(movMat)
-patchPops = rep.int(x=ADULT_EQ, times=POPS_NET_NUM)
+dayOmega = calcOmega(mu=bioParameters$muAd, lifespanReduction=0.9)
+omegaNew = c("W"=dayOmega)
+cube = cubeWolbachia(omega=omegaNew)
 ###############################################################################
 # Releases
 ###############################################################################
+popsNum = 1
 releases = replicate(
-  n=POPS_NET_NUM, simplify=FALSE,
+  n=popsNum, simplify=FALSE,
   expr={list(maleReleases=NULL, femaleReleases=NULL)}
 )
-releasesParameters = list(
-    releasesStart=REL_START, releasesInterval=REL_INTERVAL,
-    releasesNumber=REL_NUM, releaseProportion=as.integer(ADULT_EQ/10)
+# Male -----------------------------------------------------------------------
+releasesParametersMale = list(
+  releasesStart=REL_START, releasesInterval=REL_INTERVAL,
+  releasesNumber=REL_NUM, releaseProportion=as.integer(ADULT_EQ*10)
 )
 maleReleasesVector = generateReleaseVector(
-  driveCube=cube, releasesParameters=releasesParameters
+  driveCube=cube, releasesParameters=releasesParametersMale
 )
 releases[[1]]$maleReleases = maleReleasesVector
+# Female ---------------------------------------------------------------------
+releasesParametersFemale = list(
+  releasesStart=REL_START, releasesInterval=REL_INTERVAL,
+  releasesNumber=1, releaseProportion=1
+)
+femaleReleasesVector = generateReleaseVector(
+  driveCube=cube, releasesParameters=releasesParametersFemale
+)
+releases[[1]]$femaleReleases = femaleReleasesVector
 ###############################################################################
 # Setup and Run Sim
 ###############################################################################
 setupMGDrivE(stochasticityON=TRUE, verbose=VERBOSE)
 netPar = parameterizeMGDrivE(
   runID=1, simTime=as.integer(SIM_TIME/3), sampTime=SAMPLE_TIME, 
-  nPatch=POPS_NET_NUM, beta=bioParameters$betaK, muAd=bioParameters$muAd,
+  nPatch=popsNum, beta=bioParameters$betaK, muAd=bioParameters$muAd,
   popGrowth=bioParameters$popGrowth, tEgg=bioParameters$tEgg,
   tLarva=bioParameters$tLarva, tPupa=bioParameters$tPupa,
   AdPopEQ=patchPops, inheritanceCube=cube
 )
 batchMig = basicBatchMigration(
-  batchProbs=0, sexProbs=c(.5, .5), numPatches=POPS_NET_NUM
+  batchProbs=0, sexProbs=c(.5, .5), numPatches=popsNum
 )
 MGDrivESim = Network$new(
   params=netPar, driveCube=cube, patchReleases=releases,
@@ -104,11 +95,10 @@ for(i in 1:(2*REPS)){
 if(PLOT_TO_FILE){
   tiff(
     file=file.path(PTH_OUT, 'dynamics.tiff'), 
-    width=16, height=16, units='cm', compression="lzw", res=175
+    width=36, height=16, units='cm', compression="lzw", res=175
   )
   plotMGDrivEMult(readDir=PTH_OUT, lwd=0.25, alpha=0.5, totalPop=TRUE)
   dev.off()
 }else{
   plotMGDrivEMult(readDir=PTH_OUT, lwd=0.25, alpha=0.5, totalPop=TRUE)
 }
-

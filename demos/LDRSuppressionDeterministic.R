@@ -1,7 +1,8 @@
 ###############################################################################
-# Mendelian Inheritance Demo
-#   Source: https://marshalllab.github.io/MGDrivE/docs_v1/articles/mgdrive_examples.html
-#   Original Author: Jared Bennett
+# Linked Drive Suppression Demo
+#   Source: https://github.com/MarshallLab/MGDrivE/blob/master/Examples/SoftwarePaper/AeAegypti_Software_Suppression.R
+#   Original Authors: Héctor M. Sánchez C. & Jared Bennett & Sean L. Wu
+#   Modified by: Héctor M. Sánchez C.
 ###############################################################################
 rm(list=ls())
 dev.off(dev.list()["RStudioGD"])
@@ -22,15 +23,6 @@ PTH_OUT = file.path(GLB_PTH_OUT, FLD_OUT)
 unlink(file.path(PTH_OUT), recursive=TRUE)
 dir.create(path=PTH_OUT, recursive=TRUE, showWarnings=FALSE)
 ###############################################################################
-# Sim Parameters
-###############################################################################
-nRep = 10
-folderNames = file.path(
-  PTH_OUT,
-  formatC(x=1:nRep, width=3, format="d", flag="0")
-)
-simTime = as.integer(365*10)
-###############################################################################
 # BioParameters
 ###############################################################################
 bioParameters = AE_AEGYPTI
@@ -49,26 +41,23 @@ cube=cubeHomingDrive(
 ###############################################################################
 # Landscape Parameters
 ###############################################################################
-adultPopEq = 500
-popsNum = 4
-stayProb = .99975
-movMat = Diagonal(n=popsNum, x=stayProb)
-for(i in seq(1, 4)){
-  movMat[i, i+1] = 1-stayProb
+movMat = Diagonal(n=POPS_NET_NUM, x=P_STAY)
+for(i in seq(1, POPS_NET_NUM-1)){
+  movMat[i, i+1] = 1-P_STAY
 }
-movMat[popsNum, 1] = 1-stayProb
+movMat[POPS_NET_NUM, 1] = 1-P_STAY
 movMat = as.matrix(movMat)
-patchPops = rep.int(x=adultPopEq, times=popsNum)
+patchPops = rep.int(x=ADULT_EQ, times=POPS_NET_NUM)
 ###############################################################################
 # Releases
 ###############################################################################
 releases = replicate(
-  n=popsNum,
-  expr={list(maleReleases=NULL, femaleReleases=NULL)}, simplify=FALSE
+  n=POPS_NET_NUM, simplify=FALSE,
+  expr={list(maleReleases=NULL, femaleReleases=NULL)}
 )
 releasesParameters = list(
-  releasesStart=25, releasesNumber=3, releasesInterval=7,
-  releaseProportion=20
+    releasesStart=REL_START, releasesInterval=REL_INTERVAL,
+    releasesNumber=REL_NUM, releaseProportion=as.integer(ADULT_EQ/10)
 )
 maleReleasesVector = generateReleaseVector(
   driveCube=cube, releasesParameters=releasesParameters
@@ -79,14 +68,14 @@ releases[[1]]$maleReleases = maleReleasesVector
 ###############################################################################
 setupMGDrivE(stochasticityON=FALSE, verbose=VERBOSE)
 netPar = parameterizeMGDrivE(
-    runID=1, simTime=simTime, sampTime=1, nPatch=popsNum,
-    beta=bioParameters$betaK, muAd=bioParameters$muAd,
+    runID=1, simTime=as.integer(SIM_TIME), sampTime=SAMPLE_TIME, 
+    nPatch=POPS_NET_NUM, beta=bioParameters$betaK, muAd=bioParameters$muAd,
     popGrowth=bioParameters$popGrowth, tEgg=bioParameters$tEgg,
     tLarva=bioParameters$tLarva, tPupa=bioParameters$tPupa,
     AdPopEQ=patchPops, inheritanceCube=cube
 )
 batchMig = basicBatchMigration(
-    batchProbs=0, sexProbs=c(.5, .5), numPatches=popsNum
+    batchProbs=0, sexProbs=c(.5, .5), numPatches=POPS_NET_NUM
 )
 MGDrivESim = Network$new(
     params=netPar, driveCube=cube, patchReleases=releases,
@@ -102,9 +91,13 @@ aggregateFemales(
     readDir=PTH_OUT, genotypes=cube$genotypesID,
     remFile=TRUE, verbose=FALSE
 )
-# tiff(
-#   file=file.path(PTH_OUT, 'dynamics.tiff'), 
-#   width=16, height=16, units='cm', compression="lzw", res=175
-# )
-plotMGDrivESingle(readDir=PTH_OUT, totalPop=TRUE, lwd=3.5, alpha=.75)
-# dev.off()
+if(PLOT_TO_FILE){
+    tiff(
+        file=file.path(PTH_OUT, 'dynamics.tiff'), 
+        width=36, height=16, units='cm', compression="lzw", res=175
+    )
+    plotMGDrivESingle(readDir=PTH_OUT, totalPop=TRUE, lwd=3.5, alpha=.75)
+    dev.off()
+}else{
+    plotMGDrivESingle(readDir=PTH_OUT, totalPop=TRUE, lwd=3.5, alpha=.75)
+}

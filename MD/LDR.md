@@ -2,6 +2,7 @@
 
 In these demos we will have a look at how a basic gene drive construct (as described [Gantz & Bier 2015](https://www.science.org/doi/10.1126/science.aaa5945)) spreads in a series of populations in a "ring" topology, for insect replacement and suppression applications.
 
+<img src="./media/network.jpg" width="25%">
 
 ## Replacement
 
