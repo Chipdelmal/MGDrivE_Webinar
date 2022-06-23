@@ -3,6 +3,7 @@
 In these first tutorials, we will go through the basics of setting up and running simulations in MGDrivE.
 
 
+
 ## Mendelian Inheritance
 
 Our first cases will involve running MGDrivE on Mendelian inheritance baselines with, and without fitness costs on specific allelic combinations. Through these examples we will learn how to setup an MGDrivE simulation with its components and how to include releases of genetic variants into the simulated populations.

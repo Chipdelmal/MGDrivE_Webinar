@@ -3,6 +3,8 @@
 
 This repo contains all the materials and information required for MGDrivE's 2022 webinar.
 
+![](https://marshalllab.github.io/MGDrivE/images/modelDiagram.png)
+
 <hr>
 
 ## Table of Contents
