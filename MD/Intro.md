@@ -19,7 +19,7 @@ MGDrivE's life-history structure is based on [Hancock and Godfray (2007)](https:
 * **Adult Stages:** Male individuals are counted and aggregated by their genotypes, whereas female adults store both their genotype and the genotype of the male they mated with.
 
 
-![](https://besjournals.onlinelibrary.wiley.com/cms/asset/b5aa706c-4c3f-462b-aed4-a107a6494554/mee313318-fig-0002-m.jpg)
+![](./media/lifestages.jpg)
 
 
 ### Inheritance
@@ -55,7 +55,7 @@ Finally, the landscape can generally be thought of as a network of panmictic (fu
 
 Individuals will generally move across the landscape based in a probability-network-based way. We can think of this network as a Markovian process in which mosquitoes randomly move from one place to another based on the probability defined by the node relative to the other nodes in the network:
 
-![](https://besjournals.onlinelibrary.wiley.com/cms/asset/d6bd6851-bb6e-492d-a0d8-d6e8a2e71973/mee313318-fig-0003-m.jpg)
+![](./media/landscape.jpg)
 
 
 **Batch Migration**
