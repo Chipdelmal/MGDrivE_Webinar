@@ -21,4 +21,4 @@ Finally, we will simulate incompatible-insect-techique (IIT) releases for popula
 
 <hr>
 
-Note: click on the images to be directed to the code that generated them.
+**Note:** click on the images to be directed to the code that generated them.

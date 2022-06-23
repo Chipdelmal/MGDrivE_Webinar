@@ -73,7 +73,7 @@ To run the image, run the following command in the terminal:
 docker run \
     --rm -p 8787:8787 \
     -e USER="mgdrive" -e PASSWORD="webinar" \
-    -v "$(pwd)"/MGDrivE_sims:/home/mgdrive/sims_out \
+    -v $PWD/sims_out:/home/mgdrive/sims_out \
     chipdelmal/mgdrive_webinar:1.0.0
 ```  
 

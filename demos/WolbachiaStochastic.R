@@ -4,7 +4,7 @@
 #   Original Authors: Héctor M. Sánchez C. & Jared Bennett
 ###############################################################################
 rm(list=ls())
-if(!is.na(dev.list()["RStudioGD"][[1]])){dev.off(dev.list()["RStudioGD"])}
+if(any(!is.na(dev.list()["RStudioGD"]))){dev.off(dev.list()["RStudioGD"])}
 ###############################################################################
 # Loading Libraries and Setting Paths Up
 ###############################################################################

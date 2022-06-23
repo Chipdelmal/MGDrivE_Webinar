@@ -12,7 +12,7 @@ isRstudio = function(){
 
 
 scriptPath = function(){
-    commandArgs(trailingOnly=FALSE)
-    return(1)
+    args = commandArgs(trailingOnly=FALSE)
+    return(args)
 }
 
