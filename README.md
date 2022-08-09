@@ -1,7 +1,7 @@
 # MGDrivE_Webinar
 
 
-This repo contains all the materials and information required for MGDrivE's 2022 webinar.
+This repo contains all the materials and information required for MGDrivE's 2022 webinar to be held on Semptember 8th, 2022 at https://berkeley.zoom.us/j/3458250355.
 
 [![](https://marshalllab.github.io/MGDrivE/images/modelDiagram.png)](https://marshalllab.github.io/MGDrivE/)
 
