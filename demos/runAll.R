@@ -20,7 +20,8 @@ fNames = list(
     'MendelianNoCost', 'MendelianCost', 'MendelianStochastic', 
     'Wolbachia', 'WolbachiaStochastic',
     'LDRReplacementDeterministic', 'LDRReplacementStochastic',
-    'LDRSuppressionDeterministic', 'LDRSuppressionStochastic'
+    'LDRSuppressionDeterministic', 'LDRSuppressionStochastic',
+    'HomingDriveEpi'
 )
 for(file in fNames){
     source(paste0('./demos/', file, '.R'))

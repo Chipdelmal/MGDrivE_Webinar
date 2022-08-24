@@ -5,7 +5,7 @@ dockerRun:
 	docker run \
 		--rm -p 8787:8787 \
 		-e USER="mgdrive" -e PASSWORD="webinar" \
-		-v $PWD/sims_out:/home/mgdrive/sims_out \
+		-v ${PWD}/sims_out:/home/mgdrive/sims_out \
 		mgdrive_webinar:dev
 
 
