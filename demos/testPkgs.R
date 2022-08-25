@@ -1,5 +1,8 @@
 # Check if MGDrivE is installed correctly
-pkgInstalled = c(require(MGDrivE), require(MGDrivE2), require(Matrix))
+pkgInstalled = c(
+    require(MGDrivE), require(MGDrivE2), 
+    require(Matrix), require(ggplot2)
+)
 pkgFlags = all(pkgInstalled)
 # Print message with result
 if(pkgFlags){

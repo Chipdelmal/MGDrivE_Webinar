@@ -7,7 +7,7 @@ if(any(!is.na(dev.list()["RStudioGD"]))){dev.off(dev.list()["RStudioGD"])}
 ###############################################################################
 # Loading Libraries and Setting Paths Up
 ###############################################################################
-library(MGDrivE); library(MGDrivE2)
+library(MGDrivE); library(MGDrivE2); library(ggplot2)
 # Get script path and directory -----------------------------------------------
 fPath = rstudioapi::getSourceEditorContext()$path 
 dirname = dirname(fPath); basename = basename(fPath)
