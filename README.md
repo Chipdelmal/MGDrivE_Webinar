@@ -21,8 +21,7 @@ This repo contains all the materials and information required for MGDrivE's 2022
     * [S] [Linked-Drive Suppression (deterministic in network)](./demos/LDRSuppressionDeterministic.R)
     * [S] [Linked-Drive Replacement (stochastic in network)](./demos/LDRReplacementStochastic.R)
     * [S] [Linked-Drive Suppression (stochastic in network)](./demos/LDRSuppressionStochastic.R)
-4. [D] Environmental Components (MGDrivE2)
-5. [D] Epidemiological Components (MGDrivE2)
+4. Environmental Components (MGDrivE2)
 
 **Note:** Items marked with [S] link to **code scripts**, whereas items marked with [D] link to **markdown documents**.
 

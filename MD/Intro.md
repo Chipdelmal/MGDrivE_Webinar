@@ -57,6 +57,10 @@ Individuals will generally move across the landscape based in a probability-netw
 
 ![](./media/landscape.jpg)
 
+These probabilities are usually calcilated with a kernel, in which we transform the distance between nodes into a pseudo-probability, which then gets normalized for each node in our landscape:
+
+<img src="./media/TrapKernels.jpg" width="100%">
+
 
 **Batch Migration**
 
