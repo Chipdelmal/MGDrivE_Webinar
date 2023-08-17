@@ -17,7 +17,7 @@ RUN R -e "install.packages('MGDrivE', dependencies=TRUE, repos='http://cran.rstu
 ###############################################################################
 # Install Linux Packages
 ###############################################################################
-RUN apt-get update \
-    && apt-get install nano \
+RUN apt-get update -y \
+    && apt-get install nano -y \
     && apt-get install -y --no-install-recommends libxt6 \
-    && apt-get install htop
+    && apt-get install htop -y
